@@ -1,0 +1,53 @@
+/* SPRINTER MIXINS
+------------------------------------------------------------------------------*/
+
+//pressed
+.make-pressed-row() {
+  .make-row(1px);
+}
+.make-pressed-lg-column(@column-count) {
+  .make-lg-column(@column-count, 1px);
+}
+.make-pressed-md-column(@column-count) {
+  .make-md-column(@column-count, 1px);
+}
+.make-pressed-sm-column(@column-count) {
+  .make-sm-column(@column-count, 1px);
+}
+.make-pressed-xs-column(@column-count) {
+  .make-xs-column(@column-count, 1px);
+}
+
+//reduced
+.make-reduced-row() {
+  .make-row(@grid-gutter-width / 6);
+}
+.make-reduced-lg-column(@column-count) {
+  .make-lg-column(@column-count, @grid-gutter-width / 6);
+}
+.make-reduced-md-column(@column-count) {
+  .make-md-column(@column-count, @grid-gutter-width / 6);
+}
+.make-reduced-sm-column(@column-count) {
+  .make-sm-column(@column-count, @grid-gutter-width / 6);
+}
+.make-reduced-xs-column(@column-count) {
+  .make-xs-column(@column-count, @grid-gutter-width / 6);
+}
+
+//condensed
+.make-condensed-row() {
+  .make-row(@grid-gutter-width / 2);
+}
+.make-condensed-lg-column(@column-count) {
+  .make-lg-column(@column-count, @grid-gutter-width / 2);
+}
+.make-condensed-md-column(@column-count) {
+  .make-md-column(@column-count, @grid-gutter-width / 2);
+}
+.make-condensed-sm-column(@column-count) {
+  .make-sm-column(@column-count, @grid-gutter-width / 2);
+}
+.make-condensed-xs-column(@column-count) {
+  .make-xs-column(@column-count, @grid-gutter-width / 2);
+}

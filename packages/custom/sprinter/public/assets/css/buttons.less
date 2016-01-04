@@ -1,0 +1,34 @@
+/*------------------------------ SPRINTER BUTTONS -------------------------------*/
+.btn {
+  letter-spacing: 1px;
+  outline: none !important;
+
+  &.btn-lg {
+    .border-left-radius(@input-height-large);
+    .border-right-radius(@input-height-large);
+    font-size: @font-size-base;
+  }
+
+  &, &.btn-md {
+    .border-left-radius(@input-height-base);
+    .border-right-radius(@input-height-base);
+    font-size: @font-size-small;
+  }
+
+  &.btn-sm {
+    .border-left-radius(@input-height-small);
+    .border-right-radius(@input-height-small);
+    font-size: @font-size-extra-small;
+  }
+
+  &.btn-xs {
+    .border-left-radius(@input-height-small);
+    .border-right-radius(@input-height-small);
+    font-size: @font-size-extra-small;
+  }
+}
+
+.btn-black {
+  .button-variant(white, @gray-dark, transparent);
+  border: none !important;
+}

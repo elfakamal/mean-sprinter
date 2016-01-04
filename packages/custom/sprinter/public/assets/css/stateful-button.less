@@ -1,0 +1,11 @@
+/* STATEFUL BUTTON
+------------------------------------------------------------------------------*/
+.btn.stateful {
+  position: relative;
+  overflow: hidden;
+
+  & > span {
+    position: relative;
+    .transition(top .5s ease-out);
+  }
+}

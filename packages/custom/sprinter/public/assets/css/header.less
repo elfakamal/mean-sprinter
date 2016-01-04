@@ -1,0 +1,30 @@
+/*------------------------------ SPRINTER HEADER -------------------------------*/
+main > section > header {
+  border-bottom: 1px solid @border-color;
+
+  nav {
+    position: relative;
+  }
+
+  .navbar-text {
+    .absolute-left-vertical-center;
+    margin-left: @grid-gutter-width;
+    font-size: @font-size-h3;
+    font-weight: @font-weight-light;
+    text-transform: uppercase;
+
+    small {
+      font-size: @font-size-small;
+      color: @header-small-text-color;
+      display: block;
+    }
+
+    span {
+      margin-right: @grid-gutter-width / 3;
+    }
+  }
+
+  .user-nav {
+    border-left: 1px solid @border-color;
+  }
+}

@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default" data-role="navigation" ng-controller="HeaderController as hdrctr">
+  <h1 class="navbar-text" ng-if="hdrctr.hdrvars.authenticated">
+    <small>projects / trace</small>
+    <span class="icon-grid"></span>{{state}}
+  </h1>
+  <div class="right pull-right">
+    <div class="text-edit" ng-if="hdrctr.hdrvars.authenticated">
+      <div class="pull-right" mean-token-editable></div>
+      <div class="pull-right" mean-translate></div>
+    </div>
+    <ul class="navbar-nav nav auth-link" ng-if="!hdrctr.hdrvars.authenticated">
+      <li><a ui-sref='auth.register'>Join</a></li>
+      <li class="divider-vertical"></li>
+      <li><a ui-sref='auth.login'>Log In</a></li>
+    </ul>
+    <ul class="user-nav navbar-nav nav" ng-if="hdrctr.hdrvars.authenticated">
+      <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+        <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+          <span>{{hdrctr.hdrvars.user.name}}</span> <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#" ng-click="hdrctr.logout()">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

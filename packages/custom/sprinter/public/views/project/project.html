@@ -1,0 +1,70 @@
+<section class="sprinter-project">
+  <!-- <h1>{{project.name}}</h1> -->
+
+  <section class="sprinter-project-dashboard">
+    <div>
+      <h2><!-- Dasboard --></h2>
+      <div>
+        <button class="btn btn-md btn-primary stateful"
+                stateful-button
+
+                data-reset-text="<span>Add</span>"
+                data-loading-text="<span>loading...</span>"
+                data-complete-text="<span>complete!</span>"
+                data-error-text="<span>whoops!</span>"
+
+                click-state="clickState()"
+                loading-state="loadingState()"
+                complete-state="completeState()"
+                error-state="errorState()"><span>Add</span></button>
+      </div>
+    </div>
+  </section>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <section class="sprinter-project-sprints">
+    <div>
+      <!-- <h2>Sprints</h2> -->
+
+      <div class="sprint-list list">
+        <div ng-repeat="sprint in sprints">
+          <div>{{sprint.name}}</div>
+          <div>{{sprint.from}}</div>
+          <div>{{sprint.until}}</div>
+          <div>{{sprint.author.name}}</div>
+        </div>
+      </div>
+
+      <form name="sprintForm" class="sprint-form form-inline">
+        <div class="input-group">
+          <input type="text" class="form-control input-lg" placeholder="Sprint name" ng-model="newSprint.name" required>
+          <span class="input-group-addon"></span>
+          <input type="text" class="form-control input-lg" placeholder="From" ng-model="newSprint.from" data-max-date="{{newSprint.until}}" bs-datepicker required>
+          <span class="input-group-addon"></span>
+          <input type="text" class="form-control input-lg" placeholder="Until" ng-model="newSprint.until" data-min-date="{{newSprint.from}}" bs-datepicker required>
+          <div class="input-group-btn">
+            <button class="btn btn-primary btn-lg" ng-disabled="form.$invalid || !isIntervalValid" ng-click="create()"><span class="icon-plus"></span></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="sprinter-project-sandbox">
+    <div><h2>Sandbox</h2></div>
+  </section>
+
+  <section class="sprinter-project-backlog">
+    <div><h2>Backlog</h2></div>
+  </section>
+</section>

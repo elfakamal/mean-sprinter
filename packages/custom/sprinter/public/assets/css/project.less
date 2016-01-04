@@ -1,0 +1,36 @@
+/* SPRINTER PROJECT
+------------------------------------------------------------------------------*/
+.sprinter-project {
+  .make-reduced-row();
+
+
+  & > * > div {
+    .border-left-radius(@border-radius-base);
+    .border-right-radius(@border-radius-base);
+    margin: @grid-gutter-width / 6;
+    border: 1px solid #F5F5F5;
+
+    & > h1, & > h2, & > h3, & > h4, & > h5, & > h6 {
+      padding: @padding-large-vertical * 2 @padding-small-horizontal * 2;
+      margin: 0;
+    }
+  }
+
+  .sprinter-project-dashboard,
+  .sprinter-project-sprints {
+    .make-reduced-sm-column(12);
+
+    & > div {
+
+    }
+
+    .sprint-form {
+      padding: @padding-large-vertical * 2 @padding-small-horizontal * 2;
+    }
+  }
+
+  .sprinter-project-sandbox,
+  .sprinter-project-backlog {
+    .make-reduced-sm-column(6);
+  }
+}

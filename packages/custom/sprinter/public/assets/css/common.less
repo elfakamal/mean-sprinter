@@ -1,0 +1,86 @@
+/* SPRINTER COMMON
+------------------------------------------------------------------------------*/
+
+/* input group
+------------------------------------------------------------------------------*/
+.input-group {
+  width: 100% !important;
+
+  .input-group-addon {
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    & ~ .form-control {
+      border-left-width: 0;
+    }
+  }
+
+  .input-group-btn {
+    width: @input-height-large !important;
+  }
+}
+
+
+/* Truncate text
+------------------------------------------------------------------------------*/
+.truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Absolute center
+------------------------------------------------------------------------------*/
+.absolute-center {
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.absolute-left-vertical-center {
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+
+  -webkit-transform: translate(0%, -50%);
+      -ms-transform: translate(0%, -50%);
+       -o-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+}
+
+.absolute-right-vertical-center {
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+
+  -webkit-transform: translate(-100%, -50%);
+      -ms-transform: translate(-100%, -50%);
+       -o-transform: translate(-100%, -50%);
+          transform: translate(-100%, -50%);
+}
+
+/* ul roman list
+------------------------------------------------------------------------------*/
+.roman-list {
+  list-style: upper-roman outside none;
+  margin-left: 28px;
+}
+
+
+/* no selection
+------------------------------------------------------------------------------*/
+.noselect {
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  user-select: none; /* others */
+}

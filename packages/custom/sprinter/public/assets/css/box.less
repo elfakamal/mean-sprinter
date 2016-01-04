@@ -1,0 +1,43 @@
+/*------------------------------ SPRINTER LOGIN -------------------------------*/
+.box {
+  width: 300px;
+  background-color: @gray-lighter;
+
+  > :first-child, > :last-child {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  > :first-child {
+    padding: @padding-large-vertical @padding-small-horizontal;
+    font-size: @font-size-large;
+
+    small {
+      font-size: @font-size-base;
+    }
+
+    &:after {
+      content: ' ';
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      top: @padding-large-vertical;
+      height: 2px;
+      background-color: red;
+      width: 50%;
+    }
+  }
+
+  > :nth-child(2) {
+    padding: @padding-large-vertical @padding-small-horizontal;
+  }
+
+  > :last-child {
+    padding: @padding-large-vertical * 2 @padding-small-horizontal;
+    border-top: 1px solid @black-transparent-1;
+
+    .btn {
+      text-transform: uppercase;
+    }
+  }
+}

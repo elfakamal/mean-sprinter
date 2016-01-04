@@ -1,0 +1,94 @@
+/*---------------------------- SPRINTER VARIABLES ----------------------------*/
+
+// Font & text
+@font-family-base           : 'Lato', sans-serif;
+@font-weight-thin           : 100;
+@font-weight-light          : 300;
+@font-weight-normal         : 400;
+@font-weight-bold           : 700;
+@font-weight-ultra-Bold     : 900;
+
+@headings-font-weight       : @font-weight-light;
+
+@font-size-extra-small: @font-size-small - 2px;
+
+/* Border
+------------------------------------------------------------------------------*/
+@border-radius-base         : 2px;
+@border-radius-large        : 3px;
+@border-radius-small        : 1px;
+
+//overriding navbar border radius
+@navbar-border-radius: 0;
+
+
+
+/* Colors
+------------------------------------------------------------------------------*/
+
+//transparent colors
+@black-transparent-1        : rgba(0,0,0,0.1);
+@black-transparent-2        : rgba(0,0,0,0.2);
+@black-transparent-3        : rgba(0,0,0,0.3);
+@black-transparent-4        : rgba(0,0,0,0.4);
+@black-transparent-5        : rgba(0,0,0,0.5);
+@black-transparent-6        : rgba(0,0,0,0.6);
+@black-transparent-7        : rgba(0,0,0,0.7);
+@black-transparent-8        : rgba(0,0,0,0.8);
+@black-transparent-9        : rgba(0,0,0,0.9);
+
+@white-transparent-1        : rgba(255,255,255,0.1);
+@white-transparent-2        : rgba(255,255,255,0.2);
+@white-transparent-3        : rgba(255,255,255,0.3);
+@white-transparent-4        : rgba(255,255,255,0.4);
+@white-transparent-5        : rgba(255,255,255,0.5);
+@white-transparent-6        : rgba(255,255,255,0.6);
+@white-transparent-7        : rgba(255,255,255,0.7);
+@white-transparent-8        : rgba(255,255,255,0.8);
+@white-transparent-9        : rgba(255,255,255,0.9);
+
+// header
+@header-bg-color            : #f7faff;
+@header-text-color          : #7d98c2;
+@header-small-text-color    : rgba(10, 98, 236, 0.4);
+
+// aside
+@logo-bg-color              : #22334e;
+@menu-bg-color              : #2a3d59;
+@menu-text-color            : #7d98c2;
+@menu-hover-text-color      : #7bddd2;
+
+//border
+@border-color               : #e5eaf4;
+
+//overriding default navbar
+@navbar-default-color:                @header-text-color;
+@navbar-default-bg:                   @header-bg-color;
+@navbar-default-border:               darken(@navbar-default-bg, 6.5%);
+
+// Navbar links
+@navbar-default-link-color:           @header-text-color;
+@navbar-default-link-hover-color:     darken(@header-text-color, 10%);
+@navbar-default-link-hover-bg:        transparent;
+@navbar-default-link-active-color:    darken(@header-text-color, 10%);
+
+//overriding inverted navbar
+// Reset inverted navbar basics
+@navbar-inverse-color:                 @menu-text-color;
+@navbar-inverse-bg:                    @menu-bg-color;
+@navbar-inverse-border:                darken(@navbar-inverse-bg, 10%);
+
+// Inverted navbar links
+@navbar-inverse-link-color:            @menu-text-color;
+@navbar-inverse-link-hover-color:      @menu-hover-text-color;
+@navbar-inverse-link-hover-bg:         transparent;
+@navbar-inverse-link-active-color:     @navbar-inverse-link-hover-color;
+@navbar-inverse-link-active-bg:        darken(@navbar-inverse-bg, 10%);
+
+
+/* Layout
+------------------------------------------------------------------------------*/
+@navbar-height: 100px;
+@header-height: @navbar-height;
+@menu-width: 250px;
+

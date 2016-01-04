@@ -1,0 +1,31 @@
+<section class="sprinter-splash" ng-controller="SprinterController">
+  <div class="list project-list" ng-init="all()">
+    <h2>{{projects.length}} {{ projects.length === 1 ? 'project' : 'projects' }}</h2>
+    <form name="ProjectForm">
+      <div class="form-group input-group">
+        <input type="text" ng-model="newProject.name" class="form-control input-lg" placeholder="Project name">
+        <div class="input-group-btn">
+          <button class="btn btn-lg btn-success" ng-click="create()">Add project</button>
+        </div>
+      </div>
+    </form>
+    <div>
+      <div class="project" ng-repeat="project in projects">
+        <div class="project-name"><a ng-href="/project/{{project.slug}}">{{project.name}}</a>&nbsp;|&nbsp;<small>by {{project.author.name}}</small></div>
+        <div class="project-description">{{project.description}}</div>
+        <div class="project-date"><a ng-href="/project/{{project.slug}}">{{project.created | date: 'medium'}}</a></div>
+        <div class="project-date">
+          <div class="btn-group">
+            <a class="btn btn-primary" ng-href="/project/{{project.slug}}"><span class="icon-eye"></span></a>
+            <button class="btn btn-danger" ng-click="remove(project)"><span class="icon-trash"></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h2>Teams</h2>
+    <div></div>
+  </div>
+</section>
