@@ -8,6 +8,8 @@
 ------------------------------------------------------------------------------*/
 /* Scrollbar
 ------------------------------------------------------------------------------*/
+/* Box
+------------------------------------------------------------------------------*/
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -6518,6 +6520,27 @@ main {
   width: 100%;
   height: 100%;
 }
+main > section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+main > section:before,
+main > section:after {
+  content: " ";
+  display: table;
+}
+main > section:after {
+  clear: both;
+}
+main > section:before,
+main > section:after {
+  content: " ";
+  display: table;
+}
+main > section:after {
+  clear: both;
+}
 /*------------------------------ SPRINTER BUTTONS -------------------------------*/
 .btn {
   letter-spacing: 1px;
@@ -6621,17 +6644,19 @@ fieldset[disabled] .btn-black.active {
 }
 /*------------------------------ SPRINTER LOGIN -------------------------------*/
 .box {
-  width: 300px;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
   background-color: #eeeeee;
 }
 .box header,
 .box footer {
   text-align: center;
-  text-transform: uppercase;
 }
 .box header {
-  padding: 10px 10px;
+  padding: 10px 16px;
   font-size: 18px;
+  text-transform: uppercase;
 }
 .box header small {
   font-size: 14px;
@@ -6646,16 +6671,50 @@ fieldset[disabled] .btn-black.active {
   background-color: red;
   width: 50%;
 }
-.box > :nth-child(2) {
-  padding: 10px 10px;
+.box .box-separator {
+  position: relative;
+  text-align: center;
+  display: block;
+  margin: 20px 0;
+}
+.box .box-separator:before {
+  display: block;
+  width: 100%;
+  content: ' ';
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.box .box-separator span {
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  font-size: 12px;
+  text-transform: uppercase;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: white;
+}
+.box section {
+  padding: 20px 16px;
+  text-align: center;
 }
 .box footer {
-  padding: 20px 10px;
+  padding: 20px 16px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 .box .btn {
   text-transform: uppercase;
-  min-width: 50%;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 /* STATEFUL BUTTON
 ------------------------------------------------------------------------------*/
@@ -6693,12 +6752,16 @@ fieldset[disabled] .btn-black.active {
     width: 50%;
   }
 }
-/*------------------------------ SPRINTER LOGIN -------------------------------*/
+/*------------------------------ SPRINTER USER -------------------------------*/
 body.login .main-form,
 body.register .main-form,
 body.forgot-password .main-form {
-  width: 300px;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
   background-color: #eeeeee;
+  margin: 30px auto !important;
+  width: 350px;
 }
 body.login .main-form header,
 body.register .main-form header,
@@ -6707,13 +6770,13 @@ body.login .main-form footer,
 body.register .main-form footer,
 body.forgot-password .main-form footer {
   text-align: center;
-  text-transform: uppercase;
 }
 body.login .main-form header,
 body.register .main-form header,
 body.forgot-password .main-form header {
-  padding: 10px 10px;
+  padding: 10px 16px;
   font-size: 18px;
+  text-transform: uppercase;
 }
 body.login .main-form header small,
 body.register .main-form header small,
@@ -6732,22 +6795,70 @@ body.forgot-password .main-form header:after {
   background-color: red;
   width: 50%;
 }
-body.login .main-form > :nth-child(2),
-body.register .main-form > :nth-child(2),
-body.forgot-password .main-form > :nth-child(2) {
-  padding: 10px 10px;
+body.login .main-form .box-separator,
+body.register .main-form .box-separator,
+body.forgot-password .main-form .box-separator {
+  position: relative;
+  text-align: center;
+  display: block;
+  margin: 20px 0;
+}
+body.login .main-form .box-separator:before,
+body.register .main-form .box-separator:before,
+body.forgot-password .main-form .box-separator:before {
+  display: block;
+  width: 100%;
+  content: ' ';
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+body.login .main-form .box-separator span,
+body.register .main-form .box-separator span,
+body.forgot-password .main-form .box-separator span {
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  font-size: 12px;
+  text-transform: uppercase;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: white;
+}
+body.login .main-form section,
+body.register .main-form section,
+body.forgot-password .main-form section {
+  padding: 20px 16px;
+  text-align: center;
 }
 body.login .main-form footer,
 body.register .main-form footer,
 body.forgot-password .main-form footer {
-  padding: 20px 10px;
+  padding: 20px 16px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 body.login .main-form .btn,
 body.register .main-form .btn,
 body.forgot-password .main-form .btn {
   text-transform: uppercase;
-  min-width: 50%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+body.login .main-form [type="submit"],
+body.register .main-form [type="submit"],
+body.forgot-password .main-form [type="submit"] {
+  min-width: 40%;
+}
+body.forgot-password .main-form {
+  width: 400px;
 }
 /*------------------------------ SPRINTER HEADER -------------------------------*/
 body > header {

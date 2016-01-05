@@ -1,6 +1,18 @@
-/*------------------------------ SPRINTER LOGIN -------------------------------*/
+/*------------------------------ SPRINTER USER -------------------------------*/
 body.login, body.register, body.forgot-password {
   .main-form {
     .box;
+    margin: @grid-gutter-width auto !important;
+    width: 350px;
+
+    [type="submit"] {
+      min-width: 40%;
+    }
+  }
+}
+
+body.forgot-password {
+  .main-form {
+    width: 400px;
   }
 }

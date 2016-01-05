@@ -1,8 +1,16 @@
 <section class="main-form" data-ng-controller="RegisterCtrl as reg">
-  <form id="register_form" ng-submit="reg.register()">
+  <form ng-submit="reg.register()">
     <header>
-      <span>Register</span>
+      <h3>Sign Up</h3>
     </header>
+
+    <section>
+      <a ng-repeat="(key, val) in socialButtons" target="_self" ng-href="/api/auth/{{key}}" class="btn btn-sm btn-black social-button-{{key}}">
+        <span>Sign up With {{key}}</span>
+      </a>
+    </section>
+
+    <div class="box-separator"><span>or</span></div>
 
     <section>
       <div ng-repeat="error in reg.registerError">
@@ -10,62 +18,31 @@
       </div>
       <div class="alert alert-danger animated fadeIn" ng-show="reg.usernameError">{{reg.usernameError}}</div>
       <div class="alert alert-danger animated fadeIn" ng-show="reg.emailError">{{reg.emailError}}</div>
-      <h2>Sign Up</h2>
 
-      <div class="input-wrapper">
-        <input required id="name" type="text" name="name" placeholder="Full Name"
-        ng-model="reg.user.name">
-
-        <div class="error_message">Please enter a correct info #</div>
-        <span class="pic user"></span>
+      <div class="form-group">
+        <input required class="form-control" type="text" name="name" placeholder="Full Name" ng-model="reg.user.name">
       </div>
 
-      <div class="input-wrapper">
-        <input required id="email_block" type="email" name="email" placeholder="Email Address"
-        ng-model="reg.user.email">
-
-        <div class="error_message">Please enter a correct info #</div>
-        <span class="pic email"></span>
+      <div class="form-group">
+        <input required class="form-control" type="email" name="email" placeholder="Email Address" ng-model="reg.user.email">
       </div>
 
-      <div class="input-wrapper">
-        <input required id="username" type="text" name="username" placeholder="Username"
-        ng-model="reg.user.username">
-
-        <div class="error_message">Please enter a correct info #</div>
-        <span class="pic username"></span>
+      <div class="form-group">
+        <input required class="form-control" type="text" name="username" placeholder="Username" ng-model="reg.user.username">
       </div>
 
-      <div class="input-wrapper">
-        <input required id="password_block" name="password" type="{{reg.input.type}}"
-        placeholder="{{reg.input.placeholder}}" ng-model="reg.user.password">
-
-        <div class="error_message">Please enter a correct info #</div>
-        <span class="pic password {{reg.input.iconClass}}" ng-click="reg.togglePasswordVisible()">
-          <div class="hide_text_password">
-            {{reg.input.tooltipText}}
-          </div>
-        </span>
+      <div class="form-group">
+        <input required class="form-control" name="password" type="{{reg.input.type}}" placeholder="{{reg.input.placeholder}}" ng-model="reg.user.password">
       </div>
-      <div class="input-wrapper">
-        <input required id="confirm_password" name="confirm_password" type="{{reg.input.type}}"
-        placeholder="{{reg.input.placeholderConfirmPass}}" ng-model="reg.user.confirmPassword">
-
-        <div class="error_message">Please enter a correct info #</div>
-        <span class="pic password {{reg.input.iconClassConfirmPass}}" ng-click="reg.togglePasswordConfirmVisible()">
-          <div class="hide_text_password">
-            {{reg.input.tooltipTextConfirmPass}}
-          </div>
-        </span>
+      <div class="form-group">
+        <input required class="form-control" name="confirm_password" type="{{reg.input.type}}" placeholder="{{reg.input.placeholderConfirmPass}}" ng-model="reg.user.confirmPassword">
       </div>
     </section>
 
     <footer>
-      <div class="button_register">
-        <button type="submit" class="submit_button">Sign up</button>
-        <p>Already have an account?</p>
-        <a ui-sref='auth.login'>Log in</a>
-      </div>
-    </footer>
-  </form>
+      <a ui-sref="auth.login" class="btn btn-sm btn-default"><small>Already have an account?</small></a>
+      <button type="submit" class="btn btn-sm btn-black">Sign up</button>
+    </div>
+  </footer>
+</form>
 </section>

@@ -12,6 +12,7 @@ angular.module('mean.sprinter', ['mean.system']).config(['$viewPathProvider', fu
   $viewPathProvider.override('users/views/index.html', 'sprinter/views/users/index.html');
   $viewPathProvider.override('users/views/login.html', 'sprinter/views/users/login.html');
   $viewPathProvider.override('users/views/register.html', 'sprinter/views/users/register.html');
+  $viewPathProvider.override('users/views/forgot-password.html', 'sprinter/views/users/forgot-password.html');
 }]);
 
 angular.module('mean.sprinter.projects', []);

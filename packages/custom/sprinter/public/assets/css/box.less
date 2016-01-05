@@ -1,16 +1,16 @@
 /*------------------------------ SPRINTER LOGIN -------------------------------*/
 .box {
-  width: 300px;
+  .transition(all .3s ease-out);
   background-color: @gray-lighter;
 
   header, footer {
     text-align: center;
-    text-transform: uppercase;
   }
 
   header {
-    padding: @padding-large-vertical @padding-small-horizontal;
+    padding: @padding-large-vertical @padding-large-horizontal;
     font-size: @font-size-large;
+    text-transform: uppercase;
 
     small {
       font-size: @font-size-base;
@@ -28,17 +28,46 @@
     }
   }
 
-  > :nth-child(2) {
-    padding: @padding-large-vertical @padding-small-horizontal;
+  .box-separator {
+    position: relative;
+    text-align: center;
+    display: block;
+    margin: 2 / 3 * @grid-gutter-width 0;
+
+    &:before {
+      display: block;
+      width: 100%;
+      content: ' ';
+      border-top: 1px solid @black-transparent-1;
+    }
+
+    span {
+      .absolute-center;
+      .border-left-radius(50%);
+      .border-right-radius(50%);
+
+      font-size: @font-size-small;
+      text-transform: uppercase;
+      width: @box-separator-size;
+      height: @box-separator-size;
+      line-height: @box-separator-size;
+      background: white;
+    }
+  }
+
+  section {
+    padding: @padding-large-vertical * 2 @padding-large-horizontal;
+    text-align: center;
   }
 
   footer {
-    padding: @padding-large-vertical * 2 @padding-small-horizontal;
+    padding: @padding-large-vertical * 2 @padding-large-horizontal;
     border-top: 1px solid @black-transparent-1;
   }
 
   .btn {
     text-transform: uppercase;
-    min-width: 50%;
+    padding-left: @padding-large-horizontal;
+    padding-right: @padding-large-horizontal;
   }
 }
