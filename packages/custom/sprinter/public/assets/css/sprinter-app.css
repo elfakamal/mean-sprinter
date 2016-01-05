@@ -6,6 +6,8 @@
 ------------------------------------------------------------------------------*/
 /* Layout
 ------------------------------------------------------------------------------*/
+/* Scrollbar
+------------------------------------------------------------------------------*/
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -6383,6 +6385,28 @@ button.close {
 .icon-ellipsis:before {
   content: "\e129";
 }
+/*------------------------------ SPRINTER LAYOUT -------------------------------*/
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* this targets the default scrollbar (compulsory) */
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+/* the new scrollbar will have a flat appearance with the set background color */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* this will style the thumb, ignoring the track */
+::-webkit-scrollbar-button {
+  background-color: #777777;
+}
+/* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+::-webkit-scrollbar-corner {
+  background-color: #777777;
+}
+/* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+/*------------------------------ SPRINTER GRID -------------------------------*/
 /* SPRINTER MIXINS
 ------------------------------------------------------------------------------*/
 /* SPRINTER COMMON
@@ -6461,9 +6485,11 @@ button.close {
   /* others */
 }
 /*------------------------------ SPRINTER LAYOUT -------------------------------*/
+html {
+  overflow: auto;
+}
 html,
-body,
-main {
+body {
   width: 100%;
   height: 100%;
 }
@@ -6471,26 +6497,26 @@ nav {
   border: none !important;
   margin: 0 !important;
 }
+body > header {
+  z-index: 2;
+}
 aside {
-  width: 250px;
-  float: left;
   -webkit-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+  position: fixed;
+  width: 250px;
+  z-index: 1;
 }
 aside,
 aside nav {
   height: 100%;
 }
-aside + section {
-  overflow: hidden;
-}
-main > section,
-main > section .content {
+main {
+  padding-top: 100px;
+  padding-left: 250px;
+  width: 100%;
   height: 100%;
-}
-.content {
-  margin: 0;
 }
 /*------------------------------ SPRINTER BUTTONS -------------------------------*/
 .btn {
@@ -6598,19 +6624,19 @@ fieldset[disabled] .btn-black.active {
   width: 300px;
   background-color: #eeeeee;
 }
-.box > :first-child,
-.box > :last-child {
+.box header,
+.box footer {
   text-align: center;
   text-transform: uppercase;
 }
-.box > :first-child {
+.box header {
   padding: 10px 10px;
   font-size: 18px;
 }
-.box > :first-child small {
+.box header small {
   font-size: 14px;
 }
-.box > :first-child:after {
+.box header:after {
   content: ' ';
   display: block;
   margin: 0 auto;
@@ -6623,12 +6649,13 @@ fieldset[disabled] .btn-black.active {
 .box > :nth-child(2) {
   padding: 10px 10px;
 }
-.box > :last-child {
+.box footer {
   padding: 20px 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-.box > :last-child .btn {
+.box .btn {
   text-transform: uppercase;
+  min-width: 50%;
 }
 /* STATEFUL BUTTON
 ------------------------------------------------------------------------------*/
@@ -6667,35 +6694,35 @@ fieldset[disabled] .btn-black.active {
   }
 }
 /*------------------------------ SPRINTER LOGIN -------------------------------*/
-body.login .main-form2,
-body.register .main-form2,
-body.forgot-password .main-form2 {
+body.login .main-form,
+body.register .main-form,
+body.forgot-password .main-form {
   width: 300px;
   background-color: #eeeeee;
 }
-body.login .main-form2 > :first-child,
-body.register .main-form2 > :first-child,
-body.forgot-password .main-form2 > :first-child,
-body.login .main-form2 > :last-child,
-body.register .main-form2 > :last-child,
-body.forgot-password .main-form2 > :last-child {
+body.login .main-form header,
+body.register .main-form header,
+body.forgot-password .main-form header,
+body.login .main-form footer,
+body.register .main-form footer,
+body.forgot-password .main-form footer {
   text-align: center;
   text-transform: uppercase;
 }
-body.login .main-form2 > :first-child,
-body.register .main-form2 > :first-child,
-body.forgot-password .main-form2 > :first-child {
+body.login .main-form header,
+body.register .main-form header,
+body.forgot-password .main-form header {
   padding: 10px 10px;
   font-size: 18px;
 }
-body.login .main-form2 > :first-child small,
-body.register .main-form2 > :first-child small,
-body.forgot-password .main-form2 > :first-child small {
+body.login .main-form header small,
+body.register .main-form header small,
+body.forgot-password .main-form header small {
   font-size: 14px;
 }
-body.login .main-form2 > :first-child:after,
-body.register .main-form2 > :first-child:after,
-body.forgot-password .main-form2 > :first-child:after {
+body.login .main-form header:after,
+body.register .main-form header:after,
+body.forgot-password .main-form header:after {
   content: ' ';
   display: block;
   margin: 0 auto;
@@ -6705,30 +6732,66 @@ body.forgot-password .main-form2 > :first-child:after {
   background-color: red;
   width: 50%;
 }
-body.login .main-form2 > :nth-child(2),
-body.register .main-form2 > :nth-child(2),
-body.forgot-password .main-form2 > :nth-child(2) {
+body.login .main-form > :nth-child(2),
+body.register .main-form > :nth-child(2),
+body.forgot-password .main-form > :nth-child(2) {
   padding: 10px 10px;
 }
-body.login .main-form2 > :last-child,
-body.register .main-form2 > :last-child,
-body.forgot-password .main-form2 > :last-child {
+body.login .main-form footer,
+body.register .main-form footer,
+body.forgot-password .main-form footer {
   padding: 20px 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-body.login .main-form2 > :last-child .btn,
-body.register .main-form2 > :last-child .btn,
-body.forgot-password .main-form2 > :last-child .btn {
+body.login .main-form .btn,
+body.register .main-form .btn,
+body.forgot-password .main-form .btn {
   text-transform: uppercase;
+  min-width: 50%;
 }
 /*------------------------------ SPRINTER HEADER -------------------------------*/
-main > section > header {
-  border-bottom: 1px solid #e5eaf4;
+body > header {
+  width: 100%;
+  position: fixed;
 }
-main > section > header nav {
+body > header nav {
   position: relative;
 }
-main > section > header .navbar-text {
+body > header nav > div {
+  z-index: 0;
+  width: 100%;
+}
+body > header nav > div:before,
+body > header nav > div:after {
+  content: " ";
+  display: table;
+}
+body > header nav > div:after {
+  clear: both;
+}
+body > header nav > div:before,
+body > header nav > div:after {
+  content: " ";
+  display: table;
+}
+body > header nav > div:after {
+  clear: both;
+}
+body > header .sprinter-logo {
+  z-index: 1;
+  width: 250px;
+  background-color: #22334e;
+  margin: 0;
+  line-height: 100px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+body > header .sprinter-logo a {
+  color: white;
+}
+body > header .navbar-text {
   margin: auto;
   position: absolute;
   top: 50%;
@@ -6737,38 +6800,30 @@ main > section > header .navbar-text {
   -ms-transform: translate(0%, -50%);
   -o-transform: translate(0%, -50%);
   transform: translate(0%, -50%);
+  left: 250px !important;
   margin-left: 30px;
   font-size: 24px;
   font-weight: 300;
   text-transform: uppercase;
 }
-main > section > header .navbar-text small {
+body > header .navbar-text small {
   font-size: 12px;
   color: rgba(10, 98, 236, 0.4);
   display: block;
 }
-main > section > header .navbar-text span {
+body > header .navbar-text span {
   margin-right: 10px;
 }
-main > section > header .user-nav {
+body > header ul.nav {
+  float: right !important;
+}
+body > header .user-nav {
   border-left: 1px solid #e5eaf4;
 }
 /*------------------------------ SPRINTER MENU -------------------------------*/
 aside {
   background-color: #2a3d59;
-}
-aside h1 {
-  background-color: #22334e;
-  margin: 0;
-  line-height: 100px;
-  font-size: 18px;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
-  border-bottom: 1px solid #22334e;
-}
-aside h1 a {
-  color: white;
+  padding-top: 100px;
 }
 aside .collapse {
   padding: 0;

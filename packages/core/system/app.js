@@ -19,7 +19,7 @@ SystemPackage.register(function(app, auth, database, circles) {
   //We enable routing. By default the Package Object is passed to the routes
   SystemPackage.routes(app, auth, database);
 
-  SystemPackage.aggregateAsset('css', 'common.css');
+  // SystemPackage.aggregateAsset('css', 'common.css');
   SystemPackage.angularDependencies(['mean-factory-interceptor']);
   
 

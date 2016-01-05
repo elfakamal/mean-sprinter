@@ -3,12 +3,12 @@
   width: 300px;
   background-color: @gray-lighter;
 
-  > :first-child, > :last-child {
+  header, footer {
     text-align: center;
     text-transform: uppercase;
   }
 
-  > :first-child {
+  header {
     padding: @padding-large-vertical @padding-small-horizontal;
     font-size: @font-size-large;
 
@@ -32,12 +32,13 @@
     padding: @padding-large-vertical @padding-small-horizontal;
   }
 
-  > :last-child {
+  footer {
     padding: @padding-large-vertical * 2 @padding-small-horizontal;
     border-top: 1px solid @black-transparent-1;
+  }
 
-    .btn {
-      text-transform: uppercase;
-    }
+  .btn {
+    text-transform: uppercase;
+    min-width: 50%;
   }
 }

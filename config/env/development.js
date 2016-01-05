@@ -33,10 +33,10 @@ module.exports = {
       enabled: false
     },
     github: {
-      clientID: 'DEFAULT_APP_ID',
-      clientSecret: 'APP_SECRET',
+      clientID: 'f0c431563fc2f9dcbfad',
+      clientSecret: 'c327c438489e7cafd0b9fd47aacd1e927d46ede3',
       callbackURL: 'http://localhost:3000/api/auth/github/callback',
-      enabled: false
+      enabled: true
     },
     google: {
       clientID: 'DEFAULT_APP_ID',

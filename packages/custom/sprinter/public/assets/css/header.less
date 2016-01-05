@@ -1,13 +1,37 @@
 /*------------------------------ SPRINTER HEADER -------------------------------*/
-main > section > header {
-  border-bottom: 1px solid @border-color;
+body > header {
+  width: 100%;
+  position: fixed;
 
   nav {
     position: relative;
+
+    & > div {
+      .clearfix();
+      z-index: 0;
+      width: 100%;
+    }
+  }
+
+  .sprinter-logo {
+    z-index: 1;
+    width: @menu-width;
+    background-color: @logo-bg-color;
+    margin: 0;
+    line-height: @header-height;
+    font-size: @font-size-large;
+    font-weight: @font-weight-bold;
+    text-transform: uppercase;
+    text-align: center;
+
+    a {
+      color: white;
+    }
   }
 
   .navbar-text {
     .absolute-left-vertical-center;
+    left: @menu-width !important;
     margin-left: @grid-gutter-width;
     font-size: @font-size-h3;
     font-weight: @font-weight-light;
@@ -22,6 +46,10 @@ main > section > header {
     span {
       margin-right: @grid-gutter-width / 3;
     }
+  }
+
+  ul.nav {
+    .pull-right;
   }
 
   .user-nav {

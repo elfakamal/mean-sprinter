@@ -1,9 +1,10 @@
 <nav class="navbar navbar-default" data-role="navigation" ng-controller="HeaderController as hdrctr">
-  <h1 class="navbar-text" ng-if="hdrctr.hdrvars.authenticated">
-    <small>projects / trace</small>
-    <span class="icon-grid"></span>{{state}}
-  </h1>
-  <div class="right pull-right">
+  <h1 class="sprinter-logo pull-left"><a ui-sref="home" mean-token="'home'">Sprinter</a></h1>
+  <div>
+    <h2 class="navbar-text" ng-if="hdrctr.hdrvars.authenticated">
+      <small>projects / trace</small>
+      <span class="icon-grid"></span>{{state}}
+    </h2>
     <div class="text-edit" ng-if="hdrctr.hdrvars.authenticated">
       <div class="pull-right" mean-token-editable></div>
       <div class="pull-right" mean-translate></div>
@@ -18,7 +19,7 @@
         <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
           <span>{{hdrctr.hdrvars.user.name}}</span> <b class="caret"></b>
         </a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu dropdown-menu-right">
           <li><a href="#" ng-click="hdrctr.logout()">Log Out</a></li>
         </ul>
       </li>

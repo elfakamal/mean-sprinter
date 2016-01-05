@@ -3,21 +3,16 @@
 {% include '../includes/head.html' %}
 
 <body data-ng-controller="ThemeController" ng-cloak class="ng-cloak" ng-class="state">
-  <main>
-    <aside>  
-      <h1><a ui-sref="home" mean-token="'home'">Sprinter</a></h1>
-      <div data-ng-include="'/sprinter/views/menu.html'"></div>
-    </aside>
-    <section>
-      <header data-ng-include="'/sprinter/views/header.html'"></header>
-      <!-- <div data-ng-include="'/admin/views/index.html'"></div> -->
-      <section class="content">
-        <section class="container-fluid">
-          {% block content %}{% endblock %}
-        </section>
-      </section>
-      {% include '../includes/foot.html' %}
+  <header data-ng-include="'/sprinter/views/header.html'"></header>
+  <aside>  
+    <div data-ng-include="'/sprinter/views/menu.html'"></div>
+  </aside>
+  <main class="content">
+    <!-- <div data-ng-include="'/admin/views/index.html'"></div> -->
+    <section class="container-fluid">
+      {% block content %}{% endblock %}
     </section>
   </main>
+  {% include '../includes/foot.html' %}
 </body>
 </html>

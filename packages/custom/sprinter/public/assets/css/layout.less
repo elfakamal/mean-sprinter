@@ -1,5 +1,9 @@
 /*------------------------------ SPRINTER LAYOUT -------------------------------*/
-html, body, main {
+html {
+  overflow: auto;
+}
+
+html, body {
   width: 100%;
   height: 100%;
 }
@@ -9,27 +13,24 @@ nav {
   margin: 0 !important;
 }
 
+body > header {
+  z-index: 2;
+}
+
 aside {
-  width: @menu-width;
-  float: left;
   .transition(all .3s ease-out);
+  position: fixed;
+  width: @menu-width;
+  z-index: 1;
 
   &, nav {
     height: 100%;
   }
-
-  & + section {
-    overflow: hidden;
-  }
 }
 
-main > section {
-  &, .content {
-    height: 100%;
-  }
+main {
+  padding-top: @header-height;
+  padding-left: @menu-width;
+  width: 100%;
+  height: 100%;
 }
-
-.content {
-  margin: 0;
-}
-
