@@ -58,6 +58,6 @@ module.exports = {
       user: 'EMAIL_ID',
       pass: 'PASSWORD'
     }
-  }, 
+  },
   secret: 'SOME_TOKEN_SECRET'
 };

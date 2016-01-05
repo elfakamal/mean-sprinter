@@ -79,17 +79,19 @@ CircleSchema.statics.buildPermissions = function(callback) {
 
 
 var buildTrees = CircleSchema.statics.buildTrees = function(data) {
-  var tree = []
+  var tree = [];
 
   for (var index in data) {
     buildTree(data, index, tree);
   }
 
-  return tree;
+  return {
+    'name': 'circles',
+    'children': tree
+  };
 };
 
 function buildTree(data, id, branch) {
-
   var length = branch.length;
 
   branch.push({
@@ -129,4 +131,5 @@ function noChildren(data, id) {
 function hasChildren(data, id) {
   return !noChildren(data, id);
 }
+
 mongoose.model('Circle', CircleSchema);

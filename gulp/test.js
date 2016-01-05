@@ -4,9 +4,7 @@ var gulp = require('gulp'),
   gulpLoadPlugins = require('gulp-load-plugins'),
   request = require('request'),
   karmaServer = require('karma').Server,
-  _ = require('lodash'),
-  fs = require('fs'),
-  assets = require('../config/assets.json');
+  fs = require('fs');
 var plugins = gulpLoadPlugins();
 
 process.env.NODE_ENV = 'test';
@@ -53,17 +51,17 @@ function processIncludes(aggregatedAssets) {
     aggregatedAssets[i] = aggregatedAssets[i].slice(1);
     if(aggregatedAssets[i].indexOf('bower_components/') === -1) {
       var index = aggregatedAssets[i].indexOf('/') + 1;
-      aggregatedAssets[i] = aggregatedAssets[i].substring(0, index) + 'public/' + aggregatedAssets[i].substring(index);
+      aggregatedAssets[i] = aggregatedAssets[i].substring(0, index) + "public/" + aggregatedAssets[i].substring(index);
     }
     try {
-      var stats = fs.lstatSync(__dirname + '/../packages/core/' + aggregatedAssets[i]);
+      fs.lstatSync(__dirname + '/../packages/core/' + aggregatedAssets[i]);
       aggregatedAssets[i] = 'packages/core/' + aggregatedAssets[i];
       continue;
     } catch(e) {
       // Not a file
     }
     try {
-      stats = fs.lstatSync(__dirname + '/../packages/custom/' + aggregatedAssets[i]);
+      fs.lstatSync(__dirname + '/../packages/custom/' + aggregatedAssets[i]);
       aggregatedAssets[i] = 'packages/custom/' + aggregatedAssets[i];
     } catch (e) {
       // Not a file

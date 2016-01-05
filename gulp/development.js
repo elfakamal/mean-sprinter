@@ -6,17 +6,11 @@ var gulp = require('gulp'),
   gutil = require('gulp-util'),
   plugins = gulpLoadPlugins(),
   coffee = require('gulp-coffee'),
-
-  // ngHtml2Js = require('gulp-ng-html2js'),
-  // minifyHtml = require('gulp-minify-html'),
-  // concat = require('gulp-concat'),
-  // uglify = require('gulp-uglify'),
-
   paths = {
     js: ['./*.js', 'config/**/*.js', 'gulp/**/*.js', 'tools/**/*.js', 'packages/**/*.js', '!packages/**/node_modules/**', '!packages/**/assets/**/lib/**', '!packages/**/assets/**/js/**'],
     html: ['packages/**/*.html', '!packages/**/node_modules/**', '!packages/**/assets/**/lib/**'],
     css: ['packages/**/*.css', '!packages/**/node_modules/**', '!packages/**/assets/**/lib/**','!packages/core/**/public/assets/css/*.css'],
-    less: ['packages/**/*.less', '!packages/**/node_modules/**', '!packages/**/assets/**/lib/**'],
+    less: ['packages/**/*.less', '!packages/**/_*.less', '!packages/**/node_modules/**', '!packages/**/assets/**/lib/**'],
     sass: ['packages/**/*.scss', '!packages/**/node_modules/**', '!packages/**/assets/**/lib/**'],
     coffee: ['packages/**/*.coffee', '!packages/**/node_modules/**', '!packages/**/assets/**/lib/**']
   };
@@ -41,7 +35,7 @@ var defaultTasks = ['clean', 'jshint', 'less', 'csslint', 'devServe', 'watch'];
 gulp.task('env:development', function () {
   process.env.NODE_ENV = 'development';
 });
- 
+
 // gulp.task('html2js', function () {
 //   gulp.src('./packages/**/public/views/**/*.html')
 //     .pipe(minifyHtml({

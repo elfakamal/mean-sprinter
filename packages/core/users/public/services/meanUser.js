@@ -36,8 +36,10 @@ angular.module('mean.users').factory('MeanUser', [ '$rootScope', '$http', '$loca
     }*/
 
     function MeanUserKlass(){
+      this.aclDefer = $q.defer();
       this.name = 'users';
       this.user = {};
+      this.acl = this.aclDefer.promise;
       this.registerForm = false;
       this.loggedin = false;
       this.isAdmin = false;
@@ -50,7 +52,7 @@ angular.module('mean.users').factory('MeanUser', [ '$rootScope', '$http', '$loca
       $http.get('/api/users/me').success(function(response) {
         if(!response && $cookies.get('token') && $cookies.get('redirect')) {
           self.onIdentity.bind(self)({
-            token: $cookies.get('token'), 
+            token: $cookies.get('token'),
             redirect: $cookies.get('redirect').replace(/^"|"$/g, '')
           });
           $cookies.remove('token');
@@ -59,25 +61,50 @@ angular.module('mean.users').factory('MeanUser', [ '$rootScope', '$http', '$loca
           self.onIdentity.bind(self)(response);
         }
       });
+      this.acl.then(function(response) {
+        self.acl = response;
+        delete self.aclDefer;
+      });
     }
 
     MeanUserKlass.prototype.onIdentity = function(response) {
-      if (!response) return;
+      var self = this;
+
+      if (!response) {
+        $http.get('/api/circles/mine').success(function(acl) {
+          if(self.aclDefer) {
+            self.aclDefer.resolve(acl);
+          } else {
+            self.acl = acl;
+          }
+        });
+        return;
+      }
       var encodedUser, user, destination;
       if (angular.isDefined(response.token)) {
         localStorage.setItem('JWT', response.token);
         encodedUser = decodeURI(b64_to_utf8(response.token.split('.')[1]));
-        user = JSON.parse(encodedUser); 
+        user = JSON.parse(encodedUser);
       }
       destination = angular.isDefined(response.redirect) ? response.redirect : destination;
+      $cookies.remove('redirect');
       this.user = user || response;
       this.loggedin = true;
       this.loginError = 0;
       this.registerError = 0;
-      var index = (this.user.roles.indexOf('admin') + 1);
-      this.isAdmin = !!index;
-      if (destination) $location.path(destination);
-      $rootScope.$emit('loggedin');
+      this.isAdmin = this.user.roles.indexOf('admin') > -1;
+      // Add circles info to user
+      $http.get('/api/circles/mine').success(function(acl) {
+        if(self.aclDefer) {
+          self.aclDefer.resolve(acl);
+        } else {
+          self.acl = acl;
+        }
+        if (destination) {
+          $location.path(destination);
+        }
+        $rootScope.$emit('loggedin');
+      });
     };
 
     MeanUserKlass.prototype.onIdFail = function (response) {
@@ -98,7 +125,7 @@ angular.module('mean.users').factory('MeanUser', [ '$rootScope', '$http', '$loca
       $http.post('/api/login', {
           email: user.email,
           password: user.password,
-          redirect: destination
+          redirect: $cookies.get('redirect') || destination
         })
         .success(this.onIdentity.bind(this))
         .error(this.onIdFail.bind(this));
@@ -182,7 +209,7 @@ angular.module('mean.users').factory('MeanUser', [ '$rootScope', '$http', '$loca
       });
 
       return deferred.promise;
-    }
+    };
 
     MeanUserKlass.prototype.checkAdmin = function() {
      var deferred = $q.defer();

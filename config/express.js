@@ -6,7 +6,6 @@
  */
 var mean = require('meanio'),
   compression = require('compression'),
-  //morgan = require('morgan'),
   consolidate = require('consolidate'),
   express = require('express'),
   helpers = require('view-helpers'),
@@ -57,8 +56,8 @@ module.exports = function(app, db) {
   app.use(flash());
 
   app.use(modRewrite([
-    
-    '!^/api/.*|\\_getModules|\\.html|\\.js|\\.css|\\.swf|\\.jp(e?)g|\\.png|\\.ico|\\.gif|\\.svg|\\.eot|\\.ttf|\\.woff|\\.txt|\\.pdf$ / [L]'    
+
+    '!^/api/.*|\\_getModules|\\.html|\\.js|\\.css|\\.swf|\\.jp(e?)g|\\.png|\\.ico|\\.gif|\\.svg|\\.eot|\\.ttf|\\.woff|\\.txt|\\.pdf$ / [L]'
 
   ]));
 

@@ -1,9 +1,8 @@
 'use strict';
 
 var gulp = require('gulp'),
-    path = require('path'),
-    //request = require('request'),
-    shell = require('shelljs');
+  path = require('path'),
+  shell = require('shelljs');
 
 gulp.task('e2e.test', ['e2e.startServer', 'e2e.stopServer'], function(done){});
 

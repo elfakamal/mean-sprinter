@@ -1,5 +1,6 @@
 'use strict';
 
+var mean = require('meanio');
 module.exports = function(System){
   return {
     render:function(req,res){

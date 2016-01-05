@@ -25,9 +25,7 @@ angular.module('mean.admin').directive('ngEditable', function() {
             scope.$watch('edit', function(isEditable) {
                 if (isEditable === false) {
                     scope.update();
-                } /*else {
-                    // scope.focus();
-                }*/
+                }
             });
         }
     };
