@@ -4,6 +4,8 @@
  * Defining the Package
  */
 var Module = require('meanio').Module,
+    express = require('express'),
+    config = require('meanio').loadConfig(),
     Sprinter = new Module('sprinter');
 
 /*
@@ -55,6 +57,8 @@ Sprinter.register(function(app, auth, database, circles, swagger) {
   Sprinter.angularDependencies(['mgcrea.ngStrap', 'angularMoment', 'mean.circles', 'mean.sprinter']);
   Sprinter.aggregateAsset('css', 'sprinter-app.css');
   Sprinter.aggregateAsset('css', 'https://fonts.googleapis.com/css?family=Lato:400,700,900,300,100,700italic,400italic,300italic,100italic,900italic', {url: true});
+
+  // app.use('/files/public', express.static(config.root + '/packages/sprinter/assets/upload'));
 
   /**
     //Uncomment to use. Requires meanio@0.3.7 or above

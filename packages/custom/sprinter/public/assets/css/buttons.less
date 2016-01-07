@@ -7,28 +7,45 @@
     .border-left-radius(@input-height-large);
     .border-right-radius(@input-height-large);
     font-size: @font-size-base;
+    height: @input-height-large;
   }
 
   &, &.btn-md {
     .border-left-radius(@input-height-base);
     .border-right-radius(@input-height-base);
     font-size: @font-size-small;
+    height: @input-height-base;
   }
 
   &.btn-sm {
     .border-left-radius(@input-height-small);
     .border-right-radius(@input-height-small);
     font-size: @font-size-extra-small;
+    height: @input-height-small;
   }
 
   &.btn-xs {
     .border-left-radius(@input-height-small);
     .border-right-radius(@input-height-small);
     font-size: @font-size-extra-small;
+    height: @input-height-small;
   }
 }
 
 .btn-black {
   .button-variant(white, @gray-dark, transparent);
   border: none !important;
+}
+
+.input-group .btn-lg,
+.input-group-lg .btn {
+  font-size: @font-size-large;
+  height: @input-height-large;
+}
+
+.input-group .btn-sm,
+.input-group .btn-xs,
+.input-group-sm .btn {
+  font-size: @font-size-extra-small;
+  height: @input-height-small;
 }

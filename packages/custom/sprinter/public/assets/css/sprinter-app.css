@@ -6552,6 +6552,7 @@ main > section:after {
   border-bottom-right-radius: 46px;
   border-top-right-radius: 46px;
   font-size: 14px;
+  height: 46px;
 }
 .btn,
 .btn.btn-md {
@@ -6560,6 +6561,7 @@ main > section:after {
   border-bottom-right-radius: 34px;
   border-top-right-radius: 34px;
   font-size: 12px;
+  height: 34px;
 }
 .btn.btn-sm {
   border-bottom-left-radius: 30px;
@@ -6567,6 +6569,7 @@ main > section:after {
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
   font-size: 10px;
+  height: 30px;
 }
 .btn.btn-xs {
   border-bottom-left-radius: 30px;
@@ -6574,6 +6577,7 @@ main > section:after {
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
   font-size: 10px;
+  height: 30px;
 }
 .btn-black {
   color: white;
@@ -6641,6 +6645,36 @@ fieldset[disabled] .btn-black.active {
 .btn-black .badge {
   color: #333333;
   background-color: white;
+}
+.input-group .btn-lg,
+.input-group-lg .btn {
+  font-size: 18px;
+  height: 46px;
+}
+.input-group .btn-sm,
+.input-group .btn-xs,
+.input-group-sm .btn {
+  font-size: 10px;
+  height: 30px;
+}
+/*------------------------------ SPRINTER BUTTONS -------------------------------*/
+input[type="text"] {
+  border-bottom-left-radius: 34px;
+  border-top-left-radius: 34px;
+  border-bottom-right-radius: 34px;
+  border-top-right-radius: 34px;
+}
+input[type="text"].input-lg {
+  border-bottom-left-radius: 46px;
+  border-top-left-radius: 46px;
+  border-bottom-right-radius: 46px;
+  border-top-right-radius: 46px;
+}
+input[type="text"].input-sm {
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
 }
 /*------------------------------ SPRINTER LOGIN -------------------------------*/
 .box {

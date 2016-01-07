@@ -37,6 +37,13 @@
       <div class="form-group">
         <input required class="form-control" name="confirm_password" type="{{reg.input.type}}" placeholder="{{reg.input.placeholderConfirmPass}}" ng-model="reg.user.confirmPassword">
       </div>
+
+      <div class="form-group" ng-init="reg.user.avatar = {}">
+        <mean-upload file-dest="'/packages/files/'" upload-file-callback="reg.user.avatar = file"></mean-upload>
+        <div data-ng-repeat="img in images">
+          <img data-ng-src="{{img.src}}" alt="">
+        </div>
+      </div>
     </section>
 
     <footer>
